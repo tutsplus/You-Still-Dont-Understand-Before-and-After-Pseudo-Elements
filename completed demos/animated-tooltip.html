@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Animated Tooltip</title>
+
+	<!-- Modern Normalize -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/modern-normalize@1.1.0/modern-normalize.min.css">
+
+	<!-- Structure -->
+	<link rel="stylesheet" href="css/structure.css">
+
+	<!-- Custom CSS -->
+	<style>
+		a[data-tooltip] {
+			position: relative;
+		}
+
+		a[data-tooltip]::before,
+		a[data-tooltip]::after {
+			content: '';
+			display: block;
+			position: absolute;
+			pointer-events: none;
+			opacity: 0;
+			transition: opacity .2s ease-in-out;
+		}
+
+		a[data-tooltip]:hover::before,
+		a[data-tooltip]:hover::after {
+			opacity: 1;
+		}
+
+		a[data-tooltip]::after {
+			border-right: 6px solid transparent;
+			border-top: 6px solid #1E2126;
+			border-left: 6px solid transparent;
+			height: 0;
+			width: 0;
+			top: -8px;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+
+		a[data-tooltip]::before {
+			content: attr(data-tooltip);
+			background: #1E2126;
+			border-radius: 6px;
+			color: #fff;
+			font-size: 13px;
+			padding: .5rem 1rem;
+			top: calc(-100% - 18px);
+			white-space: nowrap;
+			left: 50%;
+			transform: translateX(-50%);
+		}
+	</style>
+</head>
+<body>
+	<section class="sidebar">
+		<nav>
+			<p class="title">Contents</p>
+			<ul>
+				<li><a href="basic-usage.html">Basic Usage</a></li>
+				<li><a href="custom-list.html">Custom List</a></li>
+				<li><a href="animated-tooltip.html">Animated Tooltip</a></li>
+				<li><a href="animated-toggle-switch.html">Animated Toggle Switch</a></li>
+				<li><a href="gradient-overlay.html">Gradient Overlay</a></li>
+				<li><a href="gradient-shadow.html">Gradient Shadow</a></li>
+			</ul>
+		</nav>
+
+		<footer>
+			<p><em>The Ins and Outs of the :before and :after Pseudo-elements in CSS</em></p>
+		</footer>
+	</section>
+
+	<section class="practice">
+		<!-- Practice area start -->
+
+		<p>The unlimited creative <a href="#" data-tooltip="From just €14.50/month.">subscription</a>.</p>
+
+		<!-- Practice area end -->
+	</section>
+
+	<section class="result">
+		<img src="img/reference-tooltip.svg" alt="End result">
+	</section>
+
+	<script src="js/script.js"></script>
+</body>
+</html>

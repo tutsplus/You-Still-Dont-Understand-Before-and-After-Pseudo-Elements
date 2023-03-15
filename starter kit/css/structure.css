@@ -1,0 +1,132 @@
+:root {
+	--gray-base: #1E2126;
+	--gray-t30: #67696E;
+	--gray-t80: #D4D4D6;
+
+	--primary-base: #0CB5E9;
+	--primary-t70: #b6e9f8;
+	--primary-s30: #087fa3;
+
+	--secondary-base: #32e0c1;
+	--secondary-t70: #c2f6ec;
+	--secondary-s30: #239d87;
+}
+
+body {
+	display: grid;
+	grid-template-columns: 16rem auto minmax(10rem, max-content);
+	gap: 2rem;
+	min-height: 100vh;
+	font-family: "Plus Jakarta Sans", sans-serif;
+	line-height: 1.5;
+	color: var(--gray-base);
+}
+
+.sidebar {
+	background-color: var(--gray-base);
+	padding: 2rem 4rem 2rem 2rem;
+	font-size: 13px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.sidebar ul {
+	list-style: none;
+	padding: 0;
+}
+
+.sidebar ul li {
+	margin-bottom: 1.5rem;
+}
+
+.sidebar ul li a {
+	color: #fff;
+	text-decoration: none;
+	display: inline-block;
+}
+
+.sidebar ul li.active a,
+.sidebar a:hover {
+	color: var(--primary-base);
+}
+
+.sidebar ul li.active a {
+	display: flex;
+	align-items: center;
+}
+
+.sidebar ul li.active a::before {
+	content: '';
+	background-color: var(--primary-base);
+	width: 2rem;
+	height: .25rem;
+	display: inline-block;
+	border-radius: 4px;
+	margin-right: 1rem;
+}
+
+.sidebar p {
+	color: var(--gray-t30);
+}
+
+p.title {
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-weight: bold;
+	margin: 0 0 2rem;
+}
+
+.practice,
+.result {
+	border: 2px dashed var(--gray-t80);
+	margin: 2rem 0 2rem;
+	display: grid;
+	place-content: center;
+	border-radius: 8px;
+	position: relative;
+}
+
+.practice {
+	font-size: 20px;
+	border-color: var(--primary-t70);
+	padding: 4rem;
+}
+
+.practice a {
+	color: var(--primary-base);
+}
+
+.result {
+	margin-right: 2rem;
+	gap: 2rem;
+	padding: 4rem;
+}
+
+.result img {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}
+
+.practice::before,
+.result::before {
+	content: 'Practice area';
+	padding: .5rem;
+	border-radius: 6px;
+	text-transform: uppercase;
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	font-weight: bold;
+	font-size: 13px;
+	letter-spacing: 1px;
+	background-color: var(--primary-t70);
+	color: var(--primary-s30);
+}
+
+.result::before {
+	content: 'Reference image';
+	background-color: var(--secondary-t70);
+	color: var(--secondary-s30);
+}
